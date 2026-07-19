@@ -1,0 +1,12 @@
+# Keep secrets out of the image (compose passes .env at runtime via env_file)
+.env
+
+# Local database must not be baked into the image — the volume provides it
+data/
+*.db
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.git/
