@@ -1,0 +1,15 @@
+services:
+  ticket-router:
+    build: .
+    container_name: ticket-router
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      # Keeps the SQLite user/history database across container rebuilds.
+      - ticket-router-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  ticket-router-data:
